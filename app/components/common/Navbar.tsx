@@ -13,7 +13,7 @@ export default function Navbar() {
 
 
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 ">
 
             <div className="navbar-start">
                 {/* <div className="dropdown">
@@ -37,14 +37,14 @@ export default function Navbar() {
 
             </div>
 
-            <div className="navbar-end hidden lg:flex">
+            <div className="navbar-end hidden md:flex">
                 <ul className="menu menu-horizontal px-1">
                     <li><Link href="/create" className={classNames({ 'active': checkFirstPath === 'create' })}>Create</Link></li>
 
                     <li>
                         <details>
                             <summary>Your Exam</summary>
-                            <ul className="p-2">
+                            <ul className="p-2 z-[9999]">
                                 <li><Link href="/question" className={classNames({ 'active': checkFirstPath === 'question' })}>Question Bank</Link></li>
                                 <li><Link href="/exercise" className={classNames({ 'active': checkFirstPath === 'exercise' })}>Exercise List</Link></li>
                             </ul>
@@ -54,7 +54,7 @@ export default function Navbar() {
                     <li>
                         <details>
                             <summary>Account</summary>
-                            <ul className="p-2">
+                            <ul className="p-2 z-[9999]">
                                 <li><Link href="/account" className={classNames({ 'active': checkFirstPath === 'account' })}>My Account</Link></li>
                                 <li><a>Setting</a></li>
                                 <div className="divider"></div>
