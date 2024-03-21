@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Navbar() {
 
     return (
@@ -21,20 +23,20 @@ export default function Navbar() {
           </ul>
         </div> */}
 
-                <a className="btn btn-ghost text-xl">GoExam</a>
+                <Link href="/" className="btn btn-ghost text-xl">GoExam</Link>
 
             </div>
 
             <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <li><a>Create</a></li>
+                    <li><Link href="/create" className="active">Create</Link></li>
 
                     <li>
                         <details>
                             <summary>Your Exam</summary>
                             <ul className="p-2">
-                                <li><a>Question Bank</a></li>
-                                <li><a>Exam List</a></li>
+                                <li><Link href="/question">Question Bank</Link></li>
+                                <li><Link href="/exercise">Exercise List</Link></li>
                             </ul>
                         </details>
                     </li>
