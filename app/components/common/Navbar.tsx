@@ -1,4 +1,16 @@
+"use client"
+
+import classNames from "classnames";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 export default function Navbar() {
+
+    const pathname = usePathname()
+    const checkFirstPath = pathname?.split('/')[1]
+    // console.log('router pathname', pathname)
+    // console.log('router list', checkFirstPath)
+
 
     return (
         <div className="navbar bg-base-100">
@@ -21,20 +33,20 @@ export default function Navbar() {
           </ul>
         </div> */}
 
-                <a className="btn btn-ghost text-xl">GoExam</a>
+                <Link href="/" className="btn btn-ghost text-xl">GoExam</Link>
 
             </div>
 
             <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <li><a>Create</a></li>
+                    <li><Link href="/create" className={classNames({ 'active': checkFirstPath === 'create' })}>Create</Link></li>
 
                     <li>
                         <details>
                             <summary>Your Exam</summary>
                             <ul className="p-2">
-                                <li><a>Question Bank</a></li>
-                                <li><a>Exam List</a></li>
+                                <li><Link href="/question" className={classNames({ 'active': checkFirstPath === 'question' })}>Question Bank</Link></li>
+                                <li><Link href="/exercise" className={classNames({ 'active': checkFirstPath === 'exercise' })}>Exercise List</Link></li>
                             </ul>
                         </details>
                     </li>
@@ -43,6 +55,7 @@ export default function Navbar() {
                         <details>
                             <summary>Account</summary>
                             <ul className="p-2">
+                                <li><Link href="/account" className={classNames({ 'active': checkFirstPath === 'account' })}>My Account</Link></li>
                                 <li><a>Setting</a></li>
                                 <div className="divider"></div>
                                 <li><a>Log out</a></li>
