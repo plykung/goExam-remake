@@ -49,7 +49,7 @@ export default function CreatePage() {
                                         <option>Bank 1 (1)</option>
                                         <option>Bank 2 (5)</option>
                                         <option disabled>--- Public Question Bank ---</option>
-                                        <option>NL2023 (300)</option>
+                                        <option>NL2023 (300) </option>
                                         <option>NL2022 (300)</option>
                                         <option>NL2021 (300)</option>
                                     </select>
