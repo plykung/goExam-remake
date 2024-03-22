@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "./components/common/Navbar";
-import MobileNotFullAlert from "./components/special/MobileNotFullAlert";
-import Footer from "./components/common/Footer";
+import Navbar from "../components/common/Navbar";
+import MobileNotFullAlert from "../components/special/MobileNotFullAlert";
+import Footer from "../components/common/Footer";
 
 export const metadata: Metadata = {
   title: "GoExam",
-  // description: "12345",
+  description: "12345",
 };
 
 export default function RootLayout({
@@ -20,7 +20,7 @@ export default function RootLayout({
         <div className="p-3 md:hidden">
           <MobileNotFullAlert />
         </div>
-        {/*<Navbar /> */}
+        <Navbar />
         {children}
         <Footer />
       </body>
