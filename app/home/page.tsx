@@ -1,4 +1,3 @@
-import { PlusCircleIcon, StarIcon } from "@heroicons/react/24/outline"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -15,18 +14,13 @@ export default function Home() {
 
           <div>
             <h1 className="text-5xl font-bold">GoExam</h1>
-            <p className="pt-6">Practice exams generator. For Better Score, Better Future.</p>
-            <p className="pb-6">Coming Soon!</p>
+            <p className="py-6">Practice exams Generator for Better Score, Better Future.</p>
             <div className="flex">
-              {/* <Link href="/create">
+              <Link href="/create">
                 <button className="btn btn-primary mx-2 px-14">New Exam</button>
               </Link>
               <Link href="/exercise">
                 <button className="btn btn-outline btn-secondary mx-2 px-14">Your Exam</button>
-              </Link> */}
-
-              <Link href="https://github.com/plykung/goexam-remake" target="_blank">
-                <button className="btn btn-outline btn-secondary mx-2 px-14"><StarIcon className="w-4 h-4 pe-1" /> Follow us on Github</button>
               </Link>
 
 
