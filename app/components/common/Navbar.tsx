@@ -37,7 +37,7 @@ export default function Navbar() {
 
             </div>
 
-            <div className="navbar-end hidden md:flex">
+            {/* <div className="navbar-end hidden md:flex">
                 <ul className="menu menu-horizontal px-1">
                     <li><Link href="/create" className={classNames({ 'active': checkFirstPath === 'create' })}>Create</Link></li>
 
@@ -64,7 +64,7 @@ export default function Navbar() {
                     </li>
 
                 </ul>
-            </div>
+            </div> */}
 
         </div>
     )

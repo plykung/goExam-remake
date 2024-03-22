@@ -20,7 +20,7 @@ export default function RootLayout({
         <div className="p-3 md:hidden">
           <MobileNotFullAlert />
         </div>
-        {/*<Navbar /> */}
+        <Navbar />
         {children}
         <Footer />
       </body>
