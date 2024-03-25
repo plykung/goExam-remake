@@ -42,7 +42,7 @@ function MenuItemNavBar() {
     return (
         <>
             <Menu.Item>
-                <Link href="/create">
+                <Link href="/generate">
                     New Exam
                 </Link>
             </Menu.Item>
@@ -51,12 +51,12 @@ function MenuItemNavBar() {
                     <summary>Bank</summary>
                     <ul className="p-2 z-[9999]">
                         <Menu.Item>
-                            <Link href="/exercise">
-                                Exercise List
+                            <Link href="/exam">
+                                Exam List
                             </Link>
                         </Menu.Item>
                         <Menu.Item>
-                            <Link href="/question">
+                            <Link href="/bank">
                                 Question Bank
                             </Link>
                         </Menu.Item>
