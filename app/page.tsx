@@ -1,6 +1,6 @@
 "use client"
 
-import { PlusCircleIcon, StarIcon } from "@heroicons/react/24/outline"
+import { DocumentPlusIcon, DocumentTextIcon, PlusCircleIcon, StarIcon } from "@heroicons/react/24/outline"
 import Image from "next/image"
 import Link from "next/link"
 import { Button, Hero } from "react-daisyui"
@@ -20,9 +20,17 @@ export default function Home() {
                 Practice Exams Generator. <br />
                 For Better Score, Better Future.
               </p>
-              <Link href="https://github.com/plykung/goexam-remake" target="_blank">
+              {/* <Link href="https://github.com/plykung/goexam-remake" target="_blank">
                 <Button variant="outline" color="secondary" className="mx-2 px-14 py-1 truncate "><StarIcon className="w-4 h-4 pe-1" /> Follow us on Github</Button>
-              </Link>
+              </Link> */}
+              <div className="flex flex-col lg:flex-row gap-4">
+                <Link href="/create">
+                  <Button color="primary" className="mx-2 px-14 text-nowrap" startIcon={<DocumentPlusIcon className="w-4 h-4" />}>New Exam</Button>
+                </Link>
+                <Link href="/exercise">
+                  <Button color="secondary" className="mx-2 px-14 text-nowrap" startIcon={<DocumentTextIcon className="w-4 h-4" />}>Your Exam</Button>
+                </Link>
+              </div>
             </div>
           </Hero.Content>
         </Hero>
