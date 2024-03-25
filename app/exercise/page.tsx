@@ -179,6 +179,7 @@ export default function ExercisePage() {
 
                         <div className="flex flex-row text-neutral-content/40">
                             <p>#: 30</p>
+                            <p>By ABCDEF</p>
                             <p>Created: 22 Mar 2023 13:50</p>
                         </div>
 
