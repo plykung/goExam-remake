@@ -7,9 +7,8 @@ import { Button, Hero } from "react-daisyui"
 
 export default function Home() {
   return (
-
     <>
-      <div className="hero min-h-screen bg-base-300 px-12">
+      <div className="p-5 hero min-h-screen bg-neutral">
 
         <Hero >
           <Hero.Content className="w-[100%] text-start justify-between flex-col md:flex-row-reverse max-md:space-y-4">
