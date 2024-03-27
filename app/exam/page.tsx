@@ -128,8 +128,8 @@ export default function ExercisePage() {
 
             {/* right panel */}
 
-            {/* <div className="basis-2/3 px-3 bg-slate-300 flex justify-center items-center text-neutral">
-                Please Select the Exam list on the left
+            {/* <div className="basis-1/2 md:basis-2/3 lg:basis-3/4 rounded-lg bg-slate-300 flex justify-center items-center text-neutral">
+                Please Select the Exam from the tab on the left
             </div> */}
 
             <div className="basis-1/2 md:basis-2/3 lg:basis-3/4">
@@ -172,10 +172,10 @@ export default function ExercisePage() {
                 </Card>
 
                 {/* exam description */}
-                <Card className="bg-base-100 rounded-t-none border-t-0">
-                    <Card.Body className="pt-3 pb-5">
+                <Card className="bg-base-300 rounded-t-none border-t-0">
+                    <Card.Body className="pt-5 pb-5">
                         <Card.Title className="flex flex-row justify-between">
-                            <h4>Exam No 1 </h4>
+                            <p className="text-2xl">Exam No 1</p>
                             <Badge outline color="success"> <GlobeAltIcon className="w-4 h-4 stroke-current me-1" />Public</Badge>
                         </Card.Title>
 
@@ -198,7 +198,7 @@ export default function ExercisePage() {
 
                 <Divider />
 
-                <Card className="bg-base-200 mb-3">
+                <Card className="bg-base-100 mb-3">
                     <Card.Body >
                         <Card.Title>
                             Q1
@@ -243,7 +243,7 @@ export default function ExercisePage() {
                 </Card>
 
 
-                <Card className="bg-base-200 mb-3">
+                <Card className="bg-base-100 mb-3">
                     <Card.Body >
                         <Card.Title>
                             Q2
@@ -308,7 +308,8 @@ export default function ExercisePage() {
 
             </div>
 
-        </div>
+
+        </div >
 
     )
 }
