@@ -1,10 +1,14 @@
-import { DocumentTextIcon, ExclamationTriangleIcon, GlobeAltIcon, LinkIcon, LockClosedIcon, PrinterIcon, ShareIcon } from "@heroicons/react/24/outline";
+"use client"
+
+import { DocumentTextIcon, ExclamationTriangleIcon, GlobeAltIcon, LinkIcon, LockClosedIcon, PencilIcon, PlusIcon, PrinterIcon, ShareIcon, TrashIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
+import { Avatar, Badge, Button, Card, Collapse, Divider, Form, Join, Menu, Stats, Table, Toggle, Tooltip } from "react-daisyui";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
 export default function ExercisePage() {
 
-    const Q3md = `Woman 30 years old presents with fatique for 3 months.PE: mark pale conjunctiva, no icteric sclera, liver and spleen not palpable. Laboratory examination (CBC) was shown in the table. Which one is the most likely cause of this anemia?
+    const Q2md = `Woman 30 years old presents with fatique for 3 months.PE: mark pale conjunctiva, no icteric sclera, liver and spleen not palpable. Laboratory examination (CBC) was shown in the table. Which one is the most likely cause of this anemia?
     
 
 | Tests | Results |
@@ -20,160 +24,167 @@ export default function ExercisePage() {
     `
 
     return (
-        <div className="px-5 bg-neutral flex flex-row">
-            <div className="basis-1/3 px-3 py-5 artboard bg-slate-100">
+        <div className="p-5 bg-neutral flex flex-col md:flex-row gap-3">
 
-                <div className="flex flex-col w-full border-opacity-50">
+            {/* left panel */}
+            <div className="basis-1/2 md:basis-1/3 lg:basis-1/4">
 
-                    <div className="grid card bg-base-300 rounded-box place-items-center">
-                        <div className="card w-96 bg-base-300 shadow-xl">
-                            {/* <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure> */}
-                            <div className="card-body">
+                <div className="flex flex-col w-full">
 
-                                <div className="stats shadow">
+                    <Stats className="shadow p-3 mb-3 bg-base-300">
+                        <Stats.Stat>
+                            <Stats.Stat.Item variant="figure">
+                                <DocumentTextIcon className="w-8 h-8 stroke-secondary" />
+                            </Stats.Stat.Item>
+                            <Stats.Stat.Item variant="title">
+                                Your Exams
+                            </Stats.Stat.Item>
+                            <Stats.Stat.Item variant="value">
+                                3
+                            </Stats.Stat.Item>
+                        </Stats.Stat>
+                    </Stats>
 
-                                    <div className="stat bg-base-300">
-                                        <div className="stat-figure text-secondary inline-block">
-                                            <DocumentTextIcon className="w-8 h-8 stroke-current" />
-                                        </div>
-                                        <div className="stat-title">Your Exams</div>
-                                        <div className="stat-value">3</div>
-                                        <div className="stat-desc"></div>
-                                    </div>
+                    <Card className="shadow p-3 mb-3 bg-base-300" compact>
+                        <Card.Body>
+                            <Card.Title className="flex flex-row justify-between" >
+                                <h2>Exam List</h2>
+                                <Link href="/generate">
+                                    <Button size="sm" startIcon={<PlusIcon className="h-4 w-4" />}>New</Button>
+                                </Link>
+                            </Card.Title>
 
+                            <Menu>
 
+                                <Menu.Item >
+                                    <Card compact={true} bordered={false} className="px-0 flex">
+                                        <Card.Body className="w-[100%]">
+                                            <Card.Title className="flex flex-row justify-between">
+                                                <h4>1. Exam No 1 </h4>
+                                                <Badge outline color="success"> <GlobeAltIcon className="w-4 h-4 stroke-current me-1" />Public</Badge>
+                                            </Card.Title>
+                                            <p>If a dog chews shoes whose shoes does he choose?</p>
+                                            <Card.Actions className="pt-2">
+                                                <p className=" opacity-40">#: 30</p>
 
-                                </div>
-                            </div>
-                        </div>
+                                                <div>
+                                                    <Badge color="neutral" className="m-0.5">Medical</Badge>
+                                                    <Badge color="accent" className="m-0.5">Hormones</Badge>
+                                                </div>
 
-                    </div>
+                                            </Card.Actions>
+                                        </Card.Body>
+                                    </Card>
+                                </Menu.Item>
 
-                    <div className="grid card bg-base-300 rounded-box p-5 mt-3">
-                        <h2 className="underline">Generated Papers</h2>
-                        <ul className="menu rounded-box join">
+                                <Menu.Item>
+                                    <Card compact={true} bordered={false} className="px-0 flex">
+                                        <Card.Body className="w-[100%]">
+                                            <Card.Title className="flex flex-row justify-between">
+                                                <h4>2. Exam No 2 </h4>
+                                                <Badge outline color="warning"><LinkIcon className="w-4 h-4 stroke-current me-1" />Unlisted</Badge>
+                                            </Card.Title>
+                                            <p>If a dog chews shoes whose shoes does he choose?</p>
+                                            <Card.Actions className="pt-2">
+                                                <p className=" opacity-40">#: 45</p>
 
-                            <li className="card card-compact w-[100%]">
-                                <a>
-                                    <div className="card-body ">
-                                        <h2 className="card-title">1. Exam1</h2>
-                                        <div className="card-actions">
-                                            <div className="justify-start">
-                                                <div className="badge badge-success badge-outline"> <GlobeAltIcon className="w-4 h-4 stroke-current me-1" />Public</div>
-                                            </div>
+                                                <div>
+                                                    <Badge color="neutral" className="m-0.5">Medical</Badge>
+                                                    <Badge color="accent" className="m-0.5">Hormones</Badge>
+                                                </div>
+                                            </Card.Actions>
+                                        </Card.Body>
+                                    </Card>
+                                </Menu.Item>
 
-                                            <div className="justify-end">
-                                                <div className="mx-0.5 badge badge-outline">Medical</div>
-                                                <div className="mx-0.5 badge badge-outline">Hormones</div>
-                                            </div>
+                                <Menu.Item>
+                                    <Card compact={true} bordered={false} className="px-0 flex">
+                                        <Card.Body className="w-[100%]">
+                                            <Card.Title className="flex flex-row justify-between">
+                                                <h4>3. Exam No 3 </h4>
+                                                <Badge outline color="secondary"> <LockClosedIcon className="w-4 h-4 stroke-current me-1" />Private</Badge>
+                                            </Card.Title>
+                                            <p>The brown fox jumped over the lazy dog</p>
+                                            <Card.Actions className="pt-2">
+                                                <p className=" opacity-40">#: 30</p>
 
-                                        </div>
+                                                <div>
+                                                    <Badge color="neutral" className="m-0.5">Medical</Badge>
+                                                    <Badge color="accent" className="m-0.5">Hormones</Badge>
+                                                </div>
+                                            </Card.Actions>
+                                        </Card.Body>
+                                    </Card>
+                                </Menu.Item>
 
-                                    </div>
-                                </a>
-                            </li>
+                            </Menu>
 
+                        </Card.Body>
+                    </Card>
 
-                            <li className="card card-compact w-[100%]">
-                                <a>
-                                    <div className="card-body ">
-                                        <h2 className="card-title">2. Exam2</h2>
-                                        <div className="card-actions">
-                                            <div className="justify-start">
-                                                <div className="badge badge-warning badge-outline"> <LinkIcon className="w-4 h-4 stroke-current me-1" />Unlisted</div>
-                                            </div>
-
-                                            <div className="justify-end">
-                                                <div className="mx-0.5 badge badge-outline">Medical</div>
-                                                <div className="mx-0.5 badge badge-outline">Renal</div>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                </a>
-                            </li>
-
-                            <li className="card card-compact w-[100%]">
-                                <a>
-                                    <div className="card-body ">
-                                        <h2 className="card-title">3. Exam3</h2>
-                                        <div className="card-actions">
-                                            <div className="justify-start">
-                                                <div className="badge badge-secondary badge-outline"> <LockClosedIcon className="w-4 h-4 stroke-current me-1" />Private</div>
-                                            </div>
-
-                                            <div className="justify-end">
-                                                <div className="mx-0.5 badge badge-outline">Medical</div>
-                                                <div className="mx-0.5 badge badge-outline">Family</div>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
 
             </div>
+
+            {/* right panel */}
 
             {/* <div className="basis-2/3 px-3 bg-slate-300 flex justify-center items-center text-neutral">
                 Please Select the Exam list on the left
             </div> */}
 
-            <div className="basis-2/3 px-3 py-5 bg-slate-300 ">
+            <div className="basis-1/2 md:basis-2/3 lg:basis-3/4">
 
-                <div className="card bg-base-100 w-[100%] rounded-b-none">
-                    <div className="card-body p-3">
+                {/* exam control */}
+                <Card className="bg-base-100 rounded-b-none border-b-0">
+                    <Card.Body className="py-3">
                         <div className="flex flex-row justify-between items-center">
 
-                            <div className="form-control">
-                                <label className="label cursor-pointer">
-                                    <span className="label-text pe-3">Show Answer & Details?</span>
-                                    <input type="checkbox" className="toggle" />
-                                </label>
-                            </div>
+                            <Form>
+                                <Form.Label title="Show Answer & Details?">
+                                    <Toggle className="ms-3" />
+                                </Form.Label>
+                            </Form>
 
+                            <Join>
+                                <Tooltip message="Edit">
+                                    <Button color="warning" variant="outline" size="sm" className="join-item"><PencilIcon className="w-4 h-4 stroke-current" /></Button>
+                                </Tooltip>
 
-                            <div className="justify-end join">
-                                <div className="tooltip" data-tip="Share">
-                                    <button className="btn btn-sm btn-outline btn-accent join-item"><ShareIcon className="w-4 h-4 stroke-current" /></button>
-                                </div>
-                                <div className="tooltip" data-tip="Print">
-                                    <button className="btn btn-sm btn-outline join-item"><PrinterIcon className="w-4 h-4 stroke-current" /></button>
+                                <Tooltip message="Share">
+                                    <Button color="accent" variant="outline" size="sm" className="join-item"><ShareIcon className="w-4 h-4 stroke-current" /></Button>
+                                </Tooltip>
 
-                                </div>
-                                <div className="tooltip" data-tip="Report">
-                                    <button className="btn btn-sm btn-outline btn-error join-item"><ExclamationTriangleIcon className="w-4 h-4 stroke-current" /></button>
+                                <Tooltip message="Print">
+                                    <Button variant="outline" size="sm" className="join-item"><PrinterIcon className="w-4 h-4 stroke-current" /></Button>
+                                </Tooltip>
 
-                                </div>
-                            </div>
+                                <Tooltip message="Delete">
+                                    <Button color="primary" variant="outline" size="sm" className="join-item"><TrashIcon className="w-4 h-4 stroke-current" /></Button>
+                                </Tooltip>
+
+                                <Tooltip message="Report">
+                                    <Button color="error" variant="outline" size="sm" className="join-item"><ExclamationTriangleIcon className="w-4 h-4 stroke-current" /></Button>
+                                </Tooltip>
+                            </Join>
+
                         </div>
-                    </div>
-                </div>
+                    </Card.Body>
+                </Card>
 
-                <div className="card bg-base-100 w-[100%] mb-3 rounded-t-none">
-                    <div className="card-body pt-3">
+                {/* exam description */}
+                <Card className="bg-base-100 rounded-t-none border-t-0">
+                    <Card.Body className="pt-3 pb-5">
+                        <Card.Title className="flex flex-row justify-between">
+                            <h4>Exam No 1 </h4>
+                            <Badge outline color="success"> <GlobeAltIcon className="w-4 h-4 stroke-current me-1" />Public</Badge>
+                        </Card.Title>
 
-                        <h2 className="card-title">
-                            <p>Exam 1</p>
-                            <div className="card-actions">
-                                <div className="badge badge-success badge-outline"> <GlobeAltIcon className="w-4 h-4 stroke-current me-1" />Public</div>
-                            </div>
-                        </h2>
-
-                        <div className="card-actions">
-                            <div className="justify-end">
-                                <div className="mx-0.5 badge badge-outline">Medical</div>
-                                <div className="mx-0.5 badge badge-accent badge-outline">Hormones</div>
-                            </div>
+                        <div>
+                            <Badge color="neutral" className="m-0.5">Medical</Badge>
+                            <Badge color="accent" className="m-0.5">Hormones</Badge>
                         </div>
 
-                        <p>This is a dscriptition that generator of this exams created.</p>
-
-
+                        <p className="mt-2">This is a description that generator of this exams created.</p>
 
                         <div className="divider divider-neutral m-0"></div>
 
@@ -182,253 +193,118 @@ export default function ExercisePage() {
                             <p>By ABCDEF</p>
                             <p>Created: 22 Mar 2023 13:50</p>
                         </div>
+                    </Card.Body>
+                </Card>
 
-                    </div>
-                </div>
+                <Divider />
 
-                <div className="divider divider-neutral"></div>
-
-                <div className="card bg-base-100 shadow-xl w-[100%] mb-3">
-                    <div className="card-body">
-
-                        <h2 className="card-title">
-                            <p>Q1</p>
-                            {/* <div className="card-actions">
-                                <div className="badge badge-success badge-outline"> <GlobeAltIcon className="w-4 h-4 stroke-current me-1" />Public</div>
-                            </div> */}
-                        </h2>
-
-                        {/* <div className="card-actions">
-                            <div className="justify-end">
-                                <div className="mx-0.5 badge badge-outline">Medical</div>
-                                <div className="mx-0.5 badge badge-outline">Hormones</div>
-                            </div>
-
-                        </div> */}
-
-
-                        <p>ยา ibuprofen มีกลไกการออกฤทธิ์โดยยับยั้งเอนไซม์ใด</p>
+                <Card className="bg-base-200 mb-3">
+                    <Card.Body >
+                        <Card.Title>
+                            Q1
+                        </Card.Title>
+                        <p>
+                            ยา ibuprofen มีกลไกการออกฤทธิ์โดยยับยั้งเอนไซม์ใด
+                        </p>
 
                         <div>
-                            <table className="table">
-                                {/* head */}
-                                {/* <thead>
-                                    <tr>
-                                        <th></th>
-                                        <th>Name</th>
-                                        <th>Job</th>
-                                        <th>Favorite Color</th>
-                                    </tr>
-                                </thead> */}
-                                <tbody>
+                            <Table>
+                                <Table.Body>
+                                    <Table.Row >
+                                        <span>A</span>
+                                        <span>Cyclooxygenase</span>
+                                    </Table.Row>
 
-                                    <tr>
-                                        <th>A</th>
-                                        <td>Cyclooxygenase</td>
-                                    </tr>
+                                    <Table.Row>
+                                        <span>B</span>
+                                        <span>Lipoxygenase</span>
+                                    </Table.Row>
 
-                                    <tr>
-                                        <th>B</th>
-                                        <td>Lipoxygenase</td>
-                                    </tr>
+                                    <Table.Row>
+                                        <span>C</span>
+                                        <span>Phospholipase A2</span>
+                                    </Table.Row>
 
-                                    <tr>
-                                        <th>C</th>
-                                        <td>Phospholipase A2</td>
-                                    </tr>
+                                    <Table.Row>
+                                        <span>D</span>
+                                        <span>NADPH oxidase</span>
+                                    </Table.Row>
 
-                                    <tr>
-                                        <th>D</th>
-                                        <td>NADPH oxidase</td>
-                                    </tr>
+                                    <Table.Row>
+                                        <span>E</span>
+                                        <span>Phospholipase A2</span>
+                                    </Table.Row>
 
-                                    <tr>
-                                        <th>E</th>
-                                        <td>Phospholipase A2</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                </Table.Body>
+                            </Table>
+
                         </div>
+                    </Card.Body>
+                </Card>
 
 
-
-                    </div>
-                </div>
-
-                <div className="card bg-base-100 shadow-xl w-[100%] mb-3">
-                    <div className="card-body">
-
-                        <h2 className="card-title">
-                            <p>Q2</p>
-                            {/* <div className="card-actions">
-                                <div className="badge badge-success badge-outline"> <GlobeAltIcon className="w-4 h-4 stroke-current me-1" />Public</div>
-                            </div> */}
-                        </h2>
-
-                        {/* <div className="card-actions">
-                            <div className="justify-end">
-                                <div className="mx-0.5 badge badge-outline">Medical</div>
-                                <div className="mx-0.5 badge badge-outline">Hormones</div>
-                            </div>
-
-                        </div> */}
-
-
-                        <p>2 years old boy presented with fever and oral ulcer for 2 weeks. PE: erythematous papules at palm and soles. Which complications is the most likely to happen in this patient?</p>
-
-                        <div>
-                            <table className="table">
-                                {/* head */}
-                                {/* <thead>
-                                    <tr>
-                                        <th></th>
-                                        <th>Name</th>
-                                        <th>Job</th>
-                                        <th>Favorite Color</th>
-                                    </tr>
-                                </thead> */}
-                                <tbody>
-
-                                    <tr>
-                                        <th>A</th>
-                                        <td>Hearing Loss</td>
-                                    </tr>
-
-                                    <tr>
-                                        <th>B</th>
-                                        <td>Optic Neuritis</td>
-                                    </tr>
-
-                                    <tr className="bg-success text-white">
-                                        <th>C</th>
-                                        <td>Aseptic Meningitis</td>
-                                    </tr>
-
-                                    <tr>
-                                        <th>D</th>
-                                        <td>Hepatosplenomegaly</td>
-                                    </tr>
-
-                                    <tr>
-                                        <th>E</th>
-                                        <td>Gullian Barre Syndrome</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div>
-                            <div className="collapse bg-base-200 collapse-arrow">
-                                <input type="checkbox" />
-                                <div className="collapse-title text-xl font-medium">
-                                    Answer and Explanation
-                                </div>
-                                <div className="collapse-content">
-                                    <p>This is the appearance of Hand Foot Mouth Disease. One of the complication includes aseptic meningitis. </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="divider divider-neutral m-0"></div>
-
-                        <div className="card-actions">
-                            <div className="justify-end">
-                                <div className="mx-0.5 badge badge-outline">Medical</div>
-                                <div className="mx-0.5 badge badge-accent badge-outline">Skin</div>
-                                <div className="mx-0.5 badge badge-secondary badge-outline">Skin:Pathology</div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div className="card bg-base-100 shadow-xl w-[100%] mb-3">
-                    <div className="card-body">
-
-                        <h2 className="card-title">
-                            <p>Q3</p>
-                            {/* <div className="card-actions">
-                                <div className="badge badge-success badge-outline"> <GlobeAltIcon className="w-4 h-4 stroke-current me-1" />Public</div>
-                            </div> */}
-                        </h2>
-
-                        {/* <div className="card-actions">
-                            <div className="justify-end">
-                                <div className="mx-0.5 badge badge-outline">Medical</div>
-                                <div className="mx-0.5 badge badge-outline">Hormones</div>
-                            </div>
-
-                        </div> */}
+                <Card className="bg-base-200 mb-3">
+                    <Card.Body >
+                        <Card.Title>
+                            Q2
+                        </Card.Title>
 
                         <Markdown remarkPlugins={[remarkGfm]}>
-                            {Q3md}
+                            {Q2md}
                         </Markdown>
 
                         <div>
-                            <table className="table">
-                                {/* head */}
-                                {/* <thead>
-                                    <tr>
-                                        <th></th>
-                                        <th>Name</th>
-                                        <th>Job</th>
-                                        <th>Favorite Color</th>
-                                    </tr>
-                                </thead> */}
-                                <tbody>
+                            <Table>
+                                <Table.Body>
+                                    <Table.Row>
+                                        <span>A</span>
+                                        <span>Viral infection</span>
+                                    </Table.Row>
 
-                                    <tr>
-                                        <th>A</th>
-                                        <td>Viral infection</td>
-                                    </tr>
+                                    <Table.Row className="bg-success text-white">
+                                        <span>B</span>
+                                        <span>Hypermennorrhea</span>
+                                    </Table.Row>
 
-                                    <tr className="bg-success text-white">
-                                        <th>B</th>
-                                        <td>Hypermennorrhea</td>
-                                    </tr>
+                                    <Table.Row>
+                                        <span>C</span>
+                                        <span>Autoimmune disease</span>
+                                    </Table.Row>
 
-                                    <tr>
-                                        <th>C</th>
-                                        <td>Autoimmune disease</td>
-                                    </tr>
+                                    <Table.Row>
+                                        <span>D</span>
+                                        <span>Pure red cell anemia</span>
+                                    </Table.Row>
 
-                                    <tr>
-                                        <th>D</th>
-                                        <td>Pure red cell anemia</td>
-                                    </tr>
+                                    <Table.Row>
+                                        <span>E</span>
+                                        <span>Benzene intoxication</span>
+                                    </Table.Row>
 
-                                    <tr>
-                                        <th>E</th>
-                                        <td>Benzene intoxication</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                </Table.Body>
+                            </Table>
                         </div>
+
+                        <Collapse icon="arrow" className="bg-neutral my-3">
+                            <Collapse.Title className="text-xl font-medium">
+                                Answer and Explanation
+                            </Collapse.Title>
+                            <Collapse.Content>
+                                <p>From the Laboratory results, this is microcytic anemia with thrombocytosis, which usually caused by iron deficiency anemia from chronic blood loss.</p>
+                            </Collapse.Content>
+                        </Collapse>
+
+
+                        <Divider className="m-0" />
 
                         <div>
-                            <div className="collapse bg-base-200 collapse-arrow">
-                                <input type="checkbox" />
-                                <div className="collapse-title text-xl font-medium">
-                                    Answer and Explanation
-                                </div>
-                                <div className="collapse-content">
-                                    <p>From the Laboratory results, this is microcytic anemia with thrombocytosis, which usually caused by iron deficiency anemia from chronic blood loss.</p>
-                                </div>
-                            </div>
+                            <Badge color="neutral" className="m-0.5">Medical</Badge>
+                            <Badge color="accent" className="m-0.5">Hemato</Badge>
+                            <Badge color="secondary" className="m-0.5">Hemato:Pathology</Badge>
                         </div>
 
-                        <div className="divider divider-neutral m-0"></div>
-
-                        <div className="card-actions">
-                            <div className="justify-end">
-                                <div className="mx-0.5 badge badge-outline">Medical</div>
-                                <div className="mx-0.5 badge badge-accent badge-outline">Hemato</div>
-                                <div className="mx-0.5 badge badge-secondary badge-outline">Hemato:Pathology</div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+                    </Card.Body>
+                </Card>
 
             </div>
 
