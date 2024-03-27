@@ -23,10 +23,10 @@ export default function Home() {
                 <Button variant="outline" color="secondary" className="mx-2 px-14 py-1 truncate "><StarIcon className="w-4 h-4 pe-1" /> Follow us on Github</Button>
               </Link> */}
               <div className="flex flex-col lg:flex-row gap-4">
-                <Link href="/create">
+                <Link href="/generate">
                   <Button color="primary" className="mx-2 px-14 text-nowrap" startIcon={<DocumentPlusIcon className="w-4 h-4" />}>New Exam</Button>
                 </Link>
-                <Link href="/exercise">
+                <Link href="/exam">
                   <Button color="secondary" className="mx-2 px-14 text-nowrap" startIcon={<DocumentTextIcon className="w-4 h-4" />}>Your Exam</Button>
                 </Link>
               </div>
